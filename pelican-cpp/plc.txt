@@ -11,7 +11,7 @@
 	1.0
 
 [LAYOUT<{ELEMENT /element}>(DEFAULT)] DEFAULT PLC LAYOUT:
-	[LAYOUT<{/element, RGB PIXEL}>] PLC LAYOUT:
+	[LAYOUT<{/element, RGB PIXEL}>] PLC LAYOUT
 
 [LAYOUT<{ELEMENT /element, !PIXEL /pixel}>] PLC LAYOUT:
 	[SECTION<{/element}>] HEADER
