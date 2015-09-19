@@ -7,23 +7,23 @@
 [INFO] VERSION:
 	1.0
 
-[LAYOUT<{ELEMENT TYPE /element type, !PIXEL TYPE /pixel type}>] PLC LAYOUT:
-	[SECTION<{/element type}>] HEADER
+[LAYOUT<{ELEMENT /element, !PIXEL /pixel}>] PLC LAYOUT:
+	[SECTION<{/element}>] HEADER
 	[VECTOR(HEADER: NUMBER OF ELEMENTS)] ELEMENTS:
-		[TYPE<ELEMENT TYPE>]: DATA<!/pixel type>
+		[TYPE<ELEMENT TYPE>]: DATA<!/pixel>
 
-[SECTION<{ELEMENT TYPE}>] HEADER:
+[SECTION<{ELEMENT}>] HEADER:
 	"PLC\0" [4B](str)										- magic word
 	[4B](uint) NUMBER OF ELEMENTS							- the number of elements
-	[VECTOR<ELEMENT TYPE>(NUMBER OF ELEMENTS)] METADATAS:	- metadata for each element in file
+	[VECTOR<ELEMENT>(NUMBER OF ELEMENTS)] METADATAS:	- metadata for each element in file
 		[ELEMENT TYPE: ID][1B](uint)						- type of element (see "IDS OF ELEMENTS" CONSTANTS)
 		[4B](uint)											- offset of data of the element relative to end of "HEADER" SECTION
 
-[TYPE] ELEMENT TYPE:
+[TYPE] ELEMENT:
 	TEXTURE 2D:
 		[SECTION] ID:
 			1 [1B][uint]
-		[SECTION<PIXEL TYPE>] DATA:
+		[SECTION<PIXEL>] DATA:
 			[PIXEL TYPE: ID]								- type of pixel
 			[4B](uint) WIDTH								- width of texture
 			[4B](uint) HEIGHT								- height of texture
@@ -40,7 +40,7 @@
 -		[SECTION] DATA:
 			
 
-[TYPE] PIXEL TYPE:
+[TYPE] PIXEL:
 	RGB PIXEL:
 		[SECTION] ID:
 			1 [1B](uint)
