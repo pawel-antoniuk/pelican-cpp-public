@@ -1,6 +1,6 @@
-#include "nana/gui/wvl.hpp"
+#include <nana/gui/wvl.hpp>
 #include "pelican.h"
-#pragma comment(lib, "lib/nana_Debug_x64")
+#pragma comment(lib, "nana_Debug_x64")
 
 using namespace pelican;
 using namespace nana;
