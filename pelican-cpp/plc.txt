@@ -10,19 +10,19 @@
 [INFO] VERSION:
 	1.0
 
-[LAYOUT<{ELEMENT /element}>(DEFAULT)] DEFAULT PLC LAYOUT:
-	[LAYOUT<{/element, RGB PIXEL}>] PLC LAYOUT
+[LAYOUT<{ELEMENT /element}>(DEFAULT)] DEFAULT PLC LAYOUT:	- "/element" is a alias syntax
+	[LAYOUT] PLC LAYOUT<{/element, RGB PIXEL}>
 
-[LAYOUT<{ELEMENT /element, !PIXEL /pixel}>] PLC LAYOUT:
-	[SECTION<{/element}>] HEADER
-	[VECTOR(HEADER: NUMBER OF ELEMENTS)] ELEMENTS:
-		[TYPE<ELEMENT TYPE>]: DATA<!/pixel>
+[LAYOUT<{ELEMENT, ?PIXEL}>] PLC LAYOUT:
+	[SECTION] HEADER<{ELEMENT}>
+	[VECTOR(|{ELEMENT}|)] ELEMENTS:							- "|{ELEMENT}|" is optional
+		[SECTION] ELEMENT@DATA<?PIXEL>
 
 [SECTION<{ELEMENT}>] HEADER:
 	"PLC\0" [4B](str)										- magic word
-	[4B](uint) NUMBER OF ELEMENTS							- the number of elements
-	[VECTOR<ELEMENT>(NUMBER OF ELEMENTS)] METADATAS:	- metadata for each element in file
-		[ELEMENT TYPE: ID][1B](uint)						- type of element (see "IDS OF ELEMENTS" CONSTANTS)
+	|{ELEMENT}| [4B](uint) NUMBER OF ELEMENTS				- the number of elements
+	[VECTOR(|{ELEMENT}|)] METADATAS:						- metadata for each element in file
+		[SECTION] ELEMENT@ID								- type of element (see "IDS OF ELEMENTS" CONSTANTS)
 		[4B](uint)											- offset of data of the element relative to end of "HEADER" SECTION
 
 [TYPE] ELEMENT:
@@ -35,16 +35,7 @@
 			[4B](uint) HEIGHT								- height of texture
 			[VECTOR(WIDTH)] ROWS:
 				[VECTOR(HEIGHT)] COLUMNS: 
-					[PIXEL TYPE: DATA]						
--	[SECTION] MESH:		- TODO
--		[SECTION] ID:
--			2 [1B][uint]
--		[SECTION] DATA:
--	[SECTION] MODEL:	- TODO
--		[SECTION] ID:
--			3 [1B][uint]
--		[SECTION] DATA:
-			
+					[SECTION] PIXEL@DATA	
 
 [TYPE] PIXEL:
 	RGB PIXEL:
