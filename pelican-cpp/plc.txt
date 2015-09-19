@@ -42,18 +42,14 @@
 		[SECTION] ID:
 			1 [1B](uint)
 		[SECTION] DATA:
-			[
-				[1B](uint) RED
-				[1B](uint) GREEN
-				[1B](uint) BLUE
-			]
+			[1B](uint) RED
+			[1B](uint) GREEN
+			[1B](uint) BLUE
 	RGBA:
 		[SECTION] ID:
 			2 [1B](uint)
 		[SECTION] DATA:
-			[
-				[1B](uint) RED
-				[1B](uint) GREEN
-				[1B](uint) BLUE							
-				[1B](uint) ALPHA								
-			]
+			[1B](uint) RED
+			[1B](uint) GREEN
+			[1B](uint) BLUE							
+			[1B](uint) ALPHA								
