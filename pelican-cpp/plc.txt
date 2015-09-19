@@ -42,7 +42,7 @@
 		[SECTION<VERTEX>] data:
 			[4b](uint) size
 			[VECTOR(size)] vertices:
-				<VERTEX>@data
+				[SECTION] <VERTEX>@data
 			
 [TYPE] PIXEL:
 	RGB:
