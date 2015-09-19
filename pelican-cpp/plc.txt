@@ -77,7 +77,7 @@
 		[SECTION] data:
 			[SECTION] VECTOR@data
 			[SECTION] normal:
-					[SECTION] VECTOR@data@vector
+				[SECTION] VECTOR@data@vector
 	VECTOR NORMAL UV:
 		[SECTION] id:
 			3
