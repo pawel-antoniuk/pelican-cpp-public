@@ -2,7 +2,7 @@
 	PLC format specification
 
 [INFO] AUTHOR:
-	Pawe³ Antoniuk
+	Pawel Antoniuk
 
 [INFO] VERSION:
 	1.0
