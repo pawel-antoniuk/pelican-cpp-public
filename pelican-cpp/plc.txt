@@ -11,7 +11,7 @@
 	1.0
 
 [LAYOUT<{ELEMENT}>(DEFAULT)] DEFAULT PLC LAYOUT:
-	[LAYOUT] PLC LAYOUT<{{ELEMENT}, RGB | VERTEX NORMAL UV}>
+	[LAYOUT] PLC LAYOUT<{{ELEMENT}, RGB | VERTEX UV}>
 
 [LAYOUT<{ELEMENT, PIXEL | VERTEX}>] PLC LAYOUT:
 	[SECTION] header<{ELEMENT}>
@@ -63,25 +63,20 @@
 			
 [TYPE] VERTEX:
 	VECTOR:
-		[SECTION] id:
-			1 [1B](uint)
-		[SECTION] data:
+		[SECTION(FLAG)] 1 [1B](uint) id
+		[SECTION(APPEND)] data:
 			[SECTION] vector:
 				[4B](float) x
 				[4B](float) y
 				[4B](float) z
-	VECTOR NORMAL:
-		[SECTION] id:
-			2 [1B](uint)
-		[SECTION] data:
-			[SECTION] VECTOR@data
+	NORMAL:
+		[SECTION(FLAG)] 2 [1B](uint) id
+		[SECTION(APPEND)] data:
 			[SECTION] normal:
 				[SECTION] VECTOR@data@vector
-	VECTOR NORMAL UV:
-		[SECTION] id:
-			3 [1B](uint)
-		[SECTION] data:
-			[SECTION] VECTOR NORMAL@data
+	UV:
+		[SECTION(FLAG)] 3 [1B](uint) id
+		[SECTION(APPEND)] data:
 			[SECTION] uv:
 				[4B](float) u
 				[4B](float) v
