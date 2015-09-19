@@ -1,3 +1,6 @@
+[PFSL]
+	1.0 VERSION
+
 [INFO] DESCREPTION:
 	PLC format specification
 
@@ -33,11 +36,11 @@
 			[VECTOR(WIDTH)] ROWS:
 				[VECTOR(HEIGHT)] COLUMNS: 
 					[PIXEL TYPE: DATA]						
--	[SECTION] MESH:			- TODO
+-	[SECTION] MESH:		- TODO
 -		[SECTION] ID:
 -			2 [1B][uint]
 -		[SECTION] DATA:
--	[SECTION] MODEL:		- TODO
+-	[SECTION] MODEL:	- TODO
 -		[SECTION] ID:
 -			3 [1B][uint]
 -		[SECTION] DATA:
