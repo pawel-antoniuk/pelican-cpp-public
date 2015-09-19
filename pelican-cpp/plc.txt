@@ -36,6 +36,14 @@
 			[VECTOR(width)] rows:
 				[VECTOR(height)] cols: 
 					[SECTION] <PIXEL>@data	
+	MESH:
+		[SECTION] id:
+			2 [1B][uint]
+		[SECTION<VERTEX>] data:
+			[4b](uint) size
+			[VECTOR(size)] vertices:
+				<VERTEX>@data
+			
 
 [TYPE] PIXEL:
 	RGB:
@@ -52,4 +60,29 @@
 			[1B](uint) red
 			[1B](uint) green
 			[1B](uint) blue							
-			[1B](ufloat) alpha								
+			[1B](ufloat) alpha
+			
+[TYPE] VERTEX:
+	VECTOR:
+		[SECTION] id:
+			1
+		[SECTION] data:
+			[SECTION] vector:
+				[4B](float) x
+				[4B](float) y
+				[4B](float) z
+	VECTOR NORMAL:
+		[SECTION] id:
+			2
+		[SECTION] data:
+			[SECTION] VECTOR@data
+			[SECTION] normal:
+					[SECTION] VECTOR@data@vector
+	VECTOR NORMAL UV:
+		[SECTION] id:
+			3
+		[SECTION] data:
+			[SECTION] VECTOR NORMAL@data
+			[SECTION] uv:
+				[4B](float) u
+				[4B](float) v
