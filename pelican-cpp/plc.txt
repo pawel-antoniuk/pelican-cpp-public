@@ -14,42 +14,42 @@
 	[LAYOUT] PLC LAYOUT<{ELEMENT, RGB}>
 
 [LAYOUT<{ELEMENT, ?PIXEL}>] PLC LAYOUT:
-	[SECTION] HEADER<{ELEMENT}>
-	[VECTOR] ELEMENTS:										
-		[SECTION] <ELEMENT>@DATA<?PIXEL>
+	[SECTION] header<{ELEMENT}>
+	[VECTOR] elements:										
+		[SECTION] <ELEMENT>@data<?PIXEL>
 
-[SECTION<{ELEMENT}>] HEADER:
-	"PLC\0"	[4B](str) MAGIC WORD
-	|<{ELEMENT}>| [4B](uint) NUMBER OF ELEMENTS
-	[VECTOR] METADATAS:										
-		[SECTION] <ELEMENT>@ID								
-		[4B](uint) OFFSET
+[SECTION<{ELEMENT}>] header:
+	"PLC\0"	[4B](str) magic word
+	|<{ELEMENT}>| [4B](uint) number of elements
+	[VECTOR] metadatas:										
+		[SECTION] <ELEMENT>@id							
+		[4B](uint) offset
 
 [TYPE] ELEMENT:
 	TEXTURE 2D:
-		[SECTION] ID:
-			1 [1B][uint] ELEMENT ID
-		[SECTION<PIXEL>] DATA:
-			[SECTION] PIXEL@ID								
-			[4B](uint) WIDTH								
-			[4B](uint) HEIGHT								
-			[VECTOR(WIDTH)] ROWS:
-				[VECTOR(HEIGHT)] COLUMNS: 
-					[SECTION] <PIXEL>@DATA	
+		[SECTION] id:
+			1 [1B][uint]
+		[SECTION<PIXEL>] data:
+			[SECTION] PIXEL@id								
+			[4B](uint) width								
+			[4B](uint) height								
+			[VECTOR(width)] rows:
+				[VECTOR(height)] cols: 
+					[SECTION] <PIXEL>@data	
 
 [TYPE] PIXEL:
 	RGB:
-		[SECTION] ID:
+		[SECTION] id:
 			1 [1B](uint)
-		[SECTION] DATA:
-			[1B](uint) RED
-			[1B](uint) GREEN
-			[1B](uint) BLUE
+		[SECTION] data:
+			[1B](uint) red
+			[1B](uint) green
+			[1B](uint) blue			
 	RGBA:
-		[SECTION] ID:
+		[SECTION] id:
 			2 [1B](uint)
-		[SECTION] DATA:
-			[1B](uint) RED
-			[1B](uint) GREEN
-			[1B](uint) BLUE							
-			[1B](uint) ALPHA								
+		[SECTION] data:
+			[1B](uint) red
+			[1B](uint) green
+			[1B](uint) blue							
+			[1B](ufloat) alpha								
