@@ -63,22 +63,22 @@
 			
 [TYPE] VERTEX:
 	VECTOR:
-		[SECTION(FLAG)]:
-			1 [1B](uint) id
+		[SECTION(FLAG)] id:
+			1 [1B](uint)
 		[SECTION(APPEND)] data:
 			[SECTION] vector:
 				[4B](float) x
 				[4B](float) y
 				[4B](float) z
 	NORMAL:
-		[SECTION(FLAG)]:
-			2 [1B](uint) id
+		[SECTION(FLAG)] id:
+			2 [1B](uint)
 		[SECTION(APPEND)] data:
 			[SECTION] normal:
 				[SECTION] VECTOR@data@vector
 	UV:
-		[SECTION(FLAG)]:
-			3 [1B](uint) id
+		[SECTION(FLAG)] id:
+			3 [1B](uint)
 		[SECTION(APPEND)] data:
 			[SECTION] uv:
 				[4B](float) u
