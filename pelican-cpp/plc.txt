@@ -10,50 +10,50 @@
 [INFO] VERSION:
 	1.0
 
-[LAYOUT<{ELEMENT /element}>(DEFAULT)] DEFAULT PLC LAYOUT:	- "/element" is a alias syntax
-	[LAYOUT] PLC LAYOUT<{/element, RGB PIXEL}>
+[LAYOUT<{ELEMENT}>(DEFAULT)] DEFAULT PLC LAYOUT:
+	[LAYOUT] PLC LAYOUT<{ELEMENT, RGB}>
 
 [LAYOUT<{ELEMENT, ?PIXEL}>] PLC LAYOUT:
 	[SECTION] HEADER<{ELEMENT}>
-	[VECTOR(|{ELEMENT}|)] ELEMENTS:							- "|{ELEMENT}|" is optional
-		[SECTION] ELEMENT@DATA<?PIXEL>
+	[VECTOR] ELEMENTS:										
+		[SECTION] <ELEMENT>@DATA<?PIXEL>
 
 [SECTION<{ELEMENT}>] HEADER:
-	"PLC\0" [4B](str)										- magic word
-	|{ELEMENT}| [4B](uint) NUMBER OF ELEMENTS				- the number of elements
-	[VECTOR(|{ELEMENT}|)] METADATAS:						- metadata for each element in file
-		[SECTION] ELEMENT@ID								- type of element (see "IDS OF ELEMENTS" CONSTANTS)
-		[4B](uint)											- offset of data of the element relative to end of "HEADER" SECTION
+	"PLC\0"	[4B](str) MAGIC WORD
+	|<{ELEMENT}>| [4B](uint) NUMBER OF ELEMENTS
+	[VECTOR] METADATAS:										
+		[SECTION] <ELEMENT>@ID								
+		[4B](uint) OFFSET
 
 [TYPE] ELEMENT:
 	[SECTION] TEXTURE 2D:
 		[SECTION] ID:
-			1 [1B][uint]
+			1 [1B][uint] ELEMENT ID
 		[SECTION<PIXEL>] DATA:
-			[PIXEL TYPE: ID]								- type of pixel
-			[4B](uint) WIDTH								- width of texture
-			[4B](uint) HEIGHT								- height of texture
+			[SECTION] PIXEL@ID								
+			[4B](uint) WIDTH								
+			[4B](uint) HEIGHT								
 			[VECTOR(WIDTH)] ROWS:
 				[VECTOR(HEIGHT)] COLUMNS: 
-					[SECTION] PIXEL@DATA	
+					[SECTION] <PIXEL>@DATA	
 
 [TYPE] PIXEL:
-	RGB PIXEL:
+	RGB:
 		[SECTION] ID:
 			1 [1B](uint)
 		[SECTION] DATA:
 			[
-				[1B](uint)	- red
-				[1B](uint)	- green
-				[1B](uint)	- blue
+				[1B](uint) RED
+				[1B](uint) GREEN
+				[1B](uint) BLUE
 			]
-	RGBA PIXEL:
+	RGBA:
 		[SECTION] ID:
 			2 [1B](uint)
 		[SECTION] DATA:
 			[
-				[1B](uint)	- red
-				[1B](uint)	- green
-				[1B](uint)	- blue
-				[1B](uint)	- alpha
+				[1B](uint) RED
+				[1B](uint) GREEN
+				[1B](uint) BLUE							
+				[1B](uint) ALPHA								
 			]
