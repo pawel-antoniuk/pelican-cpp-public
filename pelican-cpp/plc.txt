@@ -7,6 +7,9 @@
 [INFO] VERSION:
 	1.0
 
+[LAYOUT<{ELEMENT /element}>(DEFAULT)] DEFAULT PLC LAYOUT:
+	[LAYOUT<{/element, RGB PIXEL}>] PLC LAYOUT:
+
 [LAYOUT<{ELEMENT /element, !PIXEL /pixel}>] PLC LAYOUT:
 	[SECTION<{/element}>] HEADER
 	[VECTOR(HEADER: NUMBER OF ELEMENTS)] ELEMENTS:
@@ -20,7 +23,7 @@
 		[4B](uint)											- offset of data of the element relative to end of "HEADER" SECTION
 
 [TYPE] ELEMENT:
-	TEXTURE 2D:
+	[SECTION] TEXTURE 2D:
 		[SECTION] ID:
 			1 [1B][uint]
 		[SECTION<PIXEL>] DATA:
@@ -30,11 +33,11 @@
 			[VECTOR(WIDTH)] ROWS:
 				[VECTOR(HEIGHT)] COLUMNS: 
 					[PIXEL TYPE: DATA]						
--	MESH:	- TODO
+-	[SECTION] MESH:			- TODO
 -		[SECTION] ID:
 -			2 [1B][uint]
 -		[SECTION] DATA:
--	MODEL:	- TODO
+-	[SECTION] MODEL:		- TODO
 -		[SECTION] ID:
 -			3 [1B][uint]
 -		[SECTION] DATA:
