@@ -44,7 +44,6 @@
 			[VECTOR(size)] vertices:
 				<VERTEX>@data
 			
-
 [TYPE] PIXEL:
 	RGB:
 		[SECTION] id:
