@@ -29,7 +29,7 @@
 			[4B](uint) HEIGHT								- height of texture
 			[VECTOR(WIDTH)] ROWS:
 				[VECTOR(HEIGHT)] COLUMNS: 
-					[PIXEL TYPE: DATA]						- pixel (for size see pixels types sections)
+					[PIXEL TYPE: DATA]						
 -	MESH:	- TODO
 -		[SECTION] ID:
 -			2 [1B][uint]
