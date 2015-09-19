@@ -19,7 +19,7 @@
 		[SECTION] <ELEMENT>@data<?PIXEL>
 
 [SECTION<{ELEMENT}>] header:
-	"PLC\0"	[4B](str) magic word
+	"PLC"0 [4B](str) magic word
 	|<{ELEMENT}>| [4B](uint) number of elements
 	[VECTOR] metadatas:										
 		[SECTION] <ELEMENT>@id							
