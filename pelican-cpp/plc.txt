@@ -65,7 +65,7 @@
 [TYPE] VERTEX:
 	VECTOR:
 		[SECTION] id:
-			1
+			1 [1B](uint)
 		[SECTION] data:
 			[SECTION] vector:
 				[4B](float) x
@@ -73,14 +73,14 @@
 				[4B](float) z
 	VECTOR NORMAL:
 		[SECTION] id:
-			2
+			2 [1B](uint)
 		[SECTION] data:
 			[SECTION] VECTOR@data
 			[SECTION] normal:
 				[SECTION] VECTOR@data@vector
 	VECTOR NORMAL UV:
 		[SECTION] id:
-			3
+			3 [1B](uint)
 		[SECTION] data:
 			[SECTION] VECTOR NORMAL@data
 			[SECTION] uv:
