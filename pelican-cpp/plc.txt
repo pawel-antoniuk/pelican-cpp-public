@@ -1,0 +1,59 @@
+[INFO] DESCREPTION:
+	PLC format specification
+
+[INFO] AUTHOR:
+	Pawe³ Antoniuk
+
+[LAYOUT<{ELEMENT TYPE, !PIXEL TYPE}>] PLC LAYOUT:
+	[SECTION<{ELEMENT TYPE}>] HEADER
+	[VECTOR(HEADER: NUMBER OF ELEMENTS)] ELEMENTS:
+		[TYPE<ELEMENT TYPE>]: DATA<!PIXEL TYPE>
+
+[SECTION<{ELEMENT TYPE}>] HEADER:
+	"PLC\0" [4B](str)										- magic word
+	[4B](uint) NUMBER OF ELEMENTS							- the number of elements
+	[VECTOR<ELEMENT TYPE>(NUMBER OF ELEMENTS)] METADATAS:	- metadata for each element in file
+		[ELEMENT TYPE: ID][1B](uint)						- type of element (see "IDS OF ELEMENTS" CONSTANTS)
+		[4B](uint)											- offset of data of the element relative to end of "HEADER" SECTION
+
+[TYPE] ELEMENT TYPE:
+	TEXTURE 2D:
+		[SECTION] ID:
+			1 [1B][uint]
+		[SECTION<PIXEL TYPE>] DATA:
+			[PIXEL TYPE: ID]								- type of pixel
+			[4B](uint) WIDTH								- width of texture
+			[4B](uint) HEIGHT								- height of texture
+			[VECTOR(WIDTH)] ROWS:
+				[VECTOR(HEIGHT)] COLUMNS: 
+					[PIXEL TYPE: DATA]						- pixel (for size see pixels types sections)
+-	MESH:	- TODO
+-		[SECTION] ID:
+-			2 [1B][uint]
+-		[SECTION] DATA:
+-	MODEL:	- TODO
+-		[SECTION] ID:
+-			3 [1B][uint]
+-		[SECTION] DATA:
+			
+
+[TYPE] PIXEL TYPE:
+	RGB PIXEL:
+		[SECTION] ID:
+			1 [1B](uint)
+		[SECTION] DATA:
+			[
+				[1B](uint)	- red
+				[1B](uint)	- green
+				[1B](uint)	- blue
+			]
+	RGBA PIXEL:
+		[SECTION] ID:
+			2 [1B](uint)
+		[SECTION] DATA:
+			[
+				[1B](uint)	- red
+				[1B](uint)	- green
+				[1B](uint)	- blue
+				[1B](uint)	- alpha
+			]

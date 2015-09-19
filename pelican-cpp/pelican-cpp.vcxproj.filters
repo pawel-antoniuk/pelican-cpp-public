@@ -1,2 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="model.cpp" />
+    <ClCompile Include="pelican_impl.cpp" />
+    <ClCompile Include="scene.cpp" />
+    <ClCompile Include="texture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="model.h" />
+    <ClInclude Include="pelican.h" />
+    <ClInclude Include="pelican_debug.h" />
+    <ClInclude Include="pelican_global.h" />
+    <ClInclude Include="pelican_impl.h" />
+    <ClInclude Include="scene.h" />
+    <ClInclude Include="scene_drawer.h" />
+    <ClInclude Include="texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="plc.txt" />
+  </ItemGroup>
+</Project>
